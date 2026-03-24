@@ -5,9 +5,13 @@
     #include "defines.h"
 
     typedef struct s_context {
-        int socket;
         struct sockaddr_in target;
+        uint16_t seq;
+        char target_ip[INET_ADDRSTRLEN];
+        char *target_host;
+        int socket;
         int flags[FLAG_SIZE];
+        t_stats stats;
     } t_context;
 
     typedef struct s_stats {
@@ -19,4 +23,5 @@
         int stddev;
     } t_stats;
 
+   
 #endif
