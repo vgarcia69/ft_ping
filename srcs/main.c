@@ -15,11 +15,10 @@ int main(int ac, char **av) {
     init_context(&ping_obj);
 
     if (parse_arguments(&ping_obj, av)) {
-        write(2, "ping: usage error: Destination address required", 48);
         exit(1);
     }
-    
-    setup_socket(&ping_obj);
+ 
+    open_socket(&ping_obj);
 
     signal(SIGINT, sig_handler);
 
